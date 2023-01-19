@@ -1,6 +1,5 @@
 package Consulta;
 
-import Habitacion.Habitacion;
 import Paciente.Paciente;
 
 public class Consulta {
@@ -41,23 +40,15 @@ public class Consulta {
     }
 
 
-    public void revisarPaciente(){
+    public String revisarPaciente(){
 
         this.pacienteAsignado = null;
 
-        this.pacienteAsignado.
+        return "el paciente ha sido revisado";
 
 
     }
 
 
 
-    public String asignacion(Paciente pacienteAsignado){
-
-        if (pacienteAsignado.getGravedad() == 2 )
-         { this.pacienteAsignado.setHabitacion(pacienteAsignado.primeraHabLibre());
-
-        }
-        return null;
-    }
 }
