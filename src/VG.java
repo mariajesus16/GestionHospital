@@ -1,3 +1,6 @@
+import Consulta.Consulta;
+import Habitacion.Habitacion;
+
 import java.util.ArrayList;
 import java.util.List;
 

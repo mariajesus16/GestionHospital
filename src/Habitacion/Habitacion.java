@@ -1,3 +1,7 @@
+package Habitacion;
+
+import Paciente.Paciente;
+
 public class Habitacion {
 
     private Boolean ocupada;

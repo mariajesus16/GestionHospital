@@ -1,7 +1,9 @@
 package Empleados;
 
+import Paciente.Paciente;
+
 public class Enfermero extends Empleado {
-    //private Paciente paciente = null;
+    private Paciente paciente = null;
     private String especialidad;
 
     public Enfermero(String dni, String nombre, String especialidad) {

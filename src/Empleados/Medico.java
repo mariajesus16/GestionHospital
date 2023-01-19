@@ -1,7 +1,10 @@
 package Empleados;
 
-public class Medico extends Empleado{
-    //private Consulta consulta = null;
+import Consulta.Consulta;
+import Paciente.Paciente;
+
+public class Medico extends Empleado {
+    private Consulta consulta = null;
     private String espacialidad;
 
     public Medico(String dni, String nombre, String espacialidad) {
@@ -9,12 +12,12 @@ public class Medico extends Empleado{
         this.espacialidad = espacialidad;
     }
 
-    public static void VisitaConsultas(){
+    public static void VisitaConsultas() {
 
     }
 
-    public static void MandarTratamientos(){
-
+    public static void MandarTratamientos(Paciente paciente, String tratamiento) {
+        paciente.setTratamiento(tratamiento);
     }
 
     public String getEspacialidad() {

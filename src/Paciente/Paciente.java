@@ -1,6 +1,10 @@
+package Paciente;
+
+import Habitacion.Habitacion;
+
 public class Paciente {
-    //private Habitacion hab = null;
-    //private Consulta con = null;
+    private Habitacion hab = null;
+    //private Consulta.Consulta con = null;
     private String dni;
     private String nombre;
     private String apellidos;
@@ -12,7 +16,7 @@ public class Paciente {
     //private Boolean ingresado = false;
     //private Boolean visitas = false;
 
-    public Paciente(String dni, String nombre, String apellidos, String numeroDeRegistro){
+    public Paciente(String dni, String nombre, String apellidos, String numeroDeRegistro) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -83,15 +87,16 @@ public class Paciente {
         return tratamiento;
     }
 
-    /*public void setHabitacion(Habitacion hab){
-        this.hab = hab;}*/
+    public void setHabitacion(Habitacion hab) {
+        this.hab = hab;
+    }
 
-    /*public void setConsulta(Consulta con){
+    /*public void setConsulta(Consulta.Consulta con){
         this.con = con;}*/
 
-    /*public Habitacion getHabitacion(){
+    /*public Habitacion.Habitacion getHabitacion(){
         return hab;}*/
-    /*public Consulta getConsulta(){
+    /*public Consulta.Consulta getConsulta(){
         return con;}*/
 
     /*public void setIngresado(Boolean ingresado){
