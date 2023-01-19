@@ -19,4 +19,5 @@ public class Enfermero extends Empleado {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
 }

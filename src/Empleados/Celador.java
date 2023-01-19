@@ -18,7 +18,7 @@ public class Celador extends Empleado {
         paciente.setHabitacion(habitacion);
     }
 
-    public static void HacerCuras() {
-
+    public String HacerCuras(Paciente paciente) {
+        return "El celador le ha realizado las curas al paciente " + paciente.getNombre();
     }
 }

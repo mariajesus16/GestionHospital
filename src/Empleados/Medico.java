@@ -12,8 +12,8 @@ public class Medico extends Empleado {
         this.espacialidad = espacialidad;
     }
 
-    public static void VisitaConsultas() {
-
+    public String VisitaConsultas(Paciente paciente) {
+        return "El Paciente " + paciente.getNombre() + " con DNI: " + paciente.getDni() + " ha pasado a consulta.";
     }
 
     public static void MandarTratamientos(Paciente paciente, String tratamiento) {

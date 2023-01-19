@@ -19,7 +19,7 @@ public class Limpiador extends Empleado {
 
     public void Limpiar(Habitacion habitacion) {
         this.hab = null;
-
+        habitacion.setLimpieza(true);
     }
 
 }
