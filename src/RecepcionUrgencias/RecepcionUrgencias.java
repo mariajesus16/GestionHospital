@@ -1,13 +1,12 @@
 package RecepcionUrgencias;
+import Paciente.Paciente;
 
 public class RecepcionUrgencias {
-
-
 
     public String asignacion(Paciente pacienteAsignado){
 
         if (pacienteAsignado.getGravedad() == 2 )
-        { this.pacienteAsignado.setHabitacion(pacienteAsignado.primeraHabLibre());
+        { pacienteAsignado.setHabitacion(pacienteAsignado.primeraHabLibre());
 
         }
         return null;
