@@ -4,23 +4,23 @@ import Paciente.Paciente;
 
 public class Consulta {
 
-    private String material;
+    private String descripcion;
 
     private String tipo;
 
     private Paciente pacienteAsignado = null;
 
     public Consulta(String material, String tipo) {
-        this.material = material;
+        this.descripcion = material;
         this.tipo = tipo;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public void setTipo(String tipo) {
@@ -45,7 +45,6 @@ public class Consulta {
         this.pacienteAsignado = null;
 
         return "el paciente ha sido revisado";
-
 
     }
 

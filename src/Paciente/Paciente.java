@@ -1,7 +1,8 @@
 package Paciente;
 
-import Consulta.HabitacionesYConsultas;
+
 import Habitacion.Habitacion;
+import Habitacion.ListaDeHabitaciones;
 
 public class Paciente {
     private Habitacion hab = null;
@@ -94,9 +95,9 @@ public class Paciente {
 
     public Habitacion primeraHabLibre(){
 
-        for (int i = 0; i <= HabitacionesYConsultas.habitaciones.size(); i++ ){
+        for (int i = 0; i <= ListaDeHabitaciones.habitaciones.size(); i++ ){
 
-            Habitacion habitacion = HabitacionesYConsultas.habitaciones.get(i);
+            Habitacion habitacion = ListaDeHabitaciones.habitaciones.get(i);
 
             if (habitacion.getOcupacion() == false) return habitacion;
         }
