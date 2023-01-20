@@ -4,17 +4,22 @@ import Paciente.Paciente;
 
 public class Habitacion {
 
+    // atributo que indica si es True la habitacion está ocupada, si es false está desocupada
     private Boolean ocupada;
 
+    // atributo que nos indica que está limpia en True, si está en false no está limpia
     private Boolean limpia;
 
+    // paciente que ocupa la habitación
     private Paciente pacienteAsignado = null;
 
+    // constructor
     public Habitacion(Boolean ocupada, Boolean limpia) {
         this.ocupada = ocupada;
         this.limpia = limpia;
     }
 
+    // setters y getters
     public void setOcupacion(Boolean ocupada) {
         this.ocupada = ocupada;
     }

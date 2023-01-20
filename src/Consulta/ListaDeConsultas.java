@@ -11,6 +11,7 @@ public class ListaDeConsultas {
     static Consulta con2 = new Consulta("Realizada por iniciativa de un profesional sanitario.","Consulta programada");
     static Consulta con3 = new Consulta("Por motivos no demorables.","Consulta urgente");
 
+    // Utilizar al iniciar el programa para que vuelque las tres consultas en la lista
     public static void rellenarListaConsultas(){
         consultas.add(con1);
         consultas.add(con2);

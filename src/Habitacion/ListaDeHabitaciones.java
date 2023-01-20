@@ -9,16 +9,18 @@ import java.util.List;
 public class ListaDeHabitaciones {
 
     static Habitacion hab1 = new Habitacion(true,false);
-    static Habitacion hab2 = new Habitacion(true,false);
-    static Habitacion hab3 = new Habitacion(true,false);
-    static Habitacion hab4 = new Habitacion(true,false);
-    static Habitacion hab5 = new Habitacion(true,false);
-    static Habitacion hab6 = new Habitacion(true,false);
+    static Habitacion hab2 = new Habitacion(false,false);
+    static Habitacion hab3 = new Habitacion(false,false);
+    static Habitacion hab4 = new Habitacion(true,true);
+    static Habitacion hab5 = new Habitacion(true,true);
+    static Habitacion hab6 = new Habitacion(false,false);
     static Habitacion hab7 = new Habitacion(true,false);
-    static Habitacion hab8 = new Habitacion(true,false);
-    static Habitacion hab9 = new Habitacion(true,false);
+    static Habitacion hab8 = new Habitacion(false,false);
+    static Habitacion hab9 = new Habitacion(false,true);
     static Habitacion hab10 = new Habitacion(true,false);
 
+
+    // Utilizar al iniciar el programa para que vuelque las tres consultas en la lista
     public static void rellenarListaHabitaciones(){
         habitaciones.add(hab1);
         habitaciones.add(hab2);
