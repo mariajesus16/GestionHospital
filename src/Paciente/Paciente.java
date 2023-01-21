@@ -2,11 +2,11 @@ package Paciente;
 
 
 import Habitacion.Habitacion;
-import Habitacion.ListaDeHabitaciones;
+import Consulta.Consulta;
 
 public class Paciente {
     private Habitacion hab = null;
-    //private Consulta.Consulta con = null;
+    private Consulta con = null;
     private String dni;
     private String nombre;
     private String apellidos;
@@ -15,8 +15,8 @@ public class Paciente {
     private String dolencia = "";
     private String tratamiento = null;
     private String comida = null;
-    //private Boolean ingresado = false;
-    //private Boolean visitas = false;
+    private Boolean ingresado = false;
+    private Boolean visitas = false;
 
     public Paciente(String dni, String nombre, String apellidos, String numeroDeRegistro) {
         this.dni = dni;
@@ -93,32 +93,22 @@ public class Paciente {
         this.hab = hab;
     }
 
-    public Habitacion primeraHabLibre(){
 
-        for (int i = 0; i <= ListaDeHabitaciones.habitaciones.size(); i++ ){
+    public void setConsulta(Consulta con){
+        this.con = con;}
 
-            Habitacion habitacion = ListaDeHabitaciones.habitaciones.get(i);
+    public Habitacion getHabitacion(){
+        return hab;}
+    public Consulta getConsulta(){
+        return con;}
 
-            if (habitacion.getOcupacion() == false) return habitacion;
-        }
+    public void setIngresado(Boolean ingresado){
+        this.ingresado = ingresado;}
 
-        return null;
-    }
-    /*public void setConsulta(Consulta.Consulta con){
-        this.con = con;}*/
-
-    /*public Habitacion.Habitacion getHabitacion(){
-        return hab;}*/
-    /*public Consulta.Consulta getConsulta(){
-        return con;}*/
-
-    /*public void setIngresado(Boolean ingresado){
-        this.ingresado = ingresado;}*/
-
-    /*public void setVisitas(Boolean ingresado){
-        this.ingresado = ingresado;}*/
-    /*public Boolean getIngresado(){
-        return ingresado;}*/
-    /*public Boolean getVisitas(){
-        return visitas;}*/
+    public void setVisitas(Boolean ingresado){
+        this.ingresado = ingresado;}
+    public Boolean getIngresado(){
+        return ingresado;}
+    public Boolean getVisitas(){
+        return visitas;}
 }
