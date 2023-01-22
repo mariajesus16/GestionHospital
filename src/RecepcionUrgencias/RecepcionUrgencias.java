@@ -34,7 +34,7 @@ public class RecepcionUrgencias {
     //Función que busca la primera habitación que se encuentre libre
     public Habitacion primeraHabLibre(Paciente paciente){
 
-        for (int i = 0; i <= ListaDeHabitaciones.habitaciones.size(); i++ ){
+        for (int i = 0; i < ListaDeHabitaciones.habitaciones.size(); i++ ){
 
             Habitacion habitacion = ListaDeHabitaciones.habitaciones.get(i);
 
@@ -50,7 +50,7 @@ public class RecepcionUrgencias {
     //Función que busca la primera consulta que se encuentre libre
     public Consulta primeraConLibre(Paciente paciente){
 
-        for (int i = 0; i <= ListaDeConsultas.consultas.size(); i++ ){
+        for (int i = 0; i < ListaDeConsultas.consultas.size(); i++ ){
 
             Consulta consulta = ListaDeConsultas.consultas.get(i);
 

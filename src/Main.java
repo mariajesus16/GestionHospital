@@ -17,7 +17,7 @@ public class Main {
 
     //Función para encontrar la primera habitación que se encuentre sucia
     public static Habitacion habSucia() {
-        for (int i = 0; i <= ListaDeHabitaciones.habitaciones.size(); i++) {
+        for (int i = 0; i < ListaDeHabitaciones.habitaciones.size(); i++) {
 
             Habitacion habitacion = ListaDeHabitaciones.habitaciones.get(i);
 
