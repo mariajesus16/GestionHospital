@@ -13,14 +13,18 @@ public class Medico extends Empleado {
     }
 
     public String VisitaConsultas(Paciente paciente) {
+        String respuesta = "";
         if(consulta!=null){
-            consulta = null;
+            respuesta = "El Paciente " + paciente.getNombre() + " con DNI: " + paciente.getDni() + " ha pasado a consulta.";
             paciente.setConsulta(null);
             consulta.setPacienteAsignado(null);
-            return "El Paciente " + paciente.getNombre() + " con DNI: " + paciente.getDni() + " ha pasado a consulta.";}
+            consulta = null;
+            }
         else {
-            return "El médico no tiene consulta asignada.";
+            respuesta = "El médico no tiene consulta asignada.";
         }
+
+        return respuesta;
     }
 
     public static void MandarTratamientos(Paciente paciente, String tratamiento) {
@@ -33,5 +37,13 @@ public class Medico extends Empleado {
 
     public void setEspacialidad(String espacialidad) {
         this.espacialidad = espacialidad;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
     }
 }
