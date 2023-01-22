@@ -3,8 +3,10 @@ package Empleados;
 import Habitacion.Habitacion;
 import Paciente.Paciente;
 
+//Clase Celador que hereda de la clase abstracta Empleado
 public class Celador extends Empleado {
 
+    //Atributos de la clase Celador
     private String anioIncorporacion;
     private String especializacion;
     public Celador(String dni, String nombre) {
@@ -21,6 +23,7 @@ public class Celador extends Empleado {
         this.especializacion = especializacion;
     }
 
+    //getters y setters
     public void setEspecializacion(String especializacion) {
         this.especializacion = especializacion;
     }
@@ -37,6 +40,7 @@ public class Celador extends Empleado {
         return anioIncorporacion;
     }
 
+    //Función que rellena el atributo comida de Paciente.
     public static void LLevarComida(Paciente paciente, String comida) {
         paciente.setComida(comida);
     }

@@ -2,7 +2,9 @@ package Empleados;
 
 import Habitacion.Habitacion;
 
+//Clase Limpiador que hereda de la clase abstracta Empleado
 public class Limpiador extends Empleado {
+    //Atributos de la clase limpiador
     private Habitacion hab = null;
     private String anioIncorporacion;
 
@@ -23,6 +25,7 @@ public class Limpiador extends Empleado {
         this.experiencia = experiencia;
     }
 
+    //getters y setters
     public void setAnioIncorporacion(String anioIncorporacion) {
         this.anioIncorporacion = anioIncorporacion;
     }
@@ -46,6 +49,7 @@ public class Limpiador extends Empleado {
     public Habitacion getHab() {
         return hab;
     }
+
 
     public void Limpiar(Habitacion habitacion) {
         this.hab = null;

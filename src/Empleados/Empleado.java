@@ -1,6 +1,8 @@
 package Empleados;
 
+//Clase abstracta Empleado
 public abstract class Empleado {
+    //Atributos de la clase Empleado
     private String dni;
     private String nombre;
 
@@ -13,10 +15,10 @@ public abstract class Empleado {
 
     public Empleado(String dni, String apellidos){
         this.dni = dni;
-        this.nombre = nombre;
         this.apellidos = apellidos;
     }
 
+    //getters y setters
     public Empleado(String dni){
         this.dni = dni;
     }

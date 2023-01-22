@@ -2,7 +2,9 @@ package Empleados;
 
 import Paciente.Paciente;
 
+//Clase Enfermero que hereda de la clase abstracta Empleado
 public class Enfermero extends Empleado {
+    //Atributos de la clase enfermero
     private Paciente paciente = null;
     private String especialidad;
 
@@ -24,6 +26,7 @@ public class Enfermero extends Empleado {
         this.anioGraduacion = anioGraduacion;
     }
 
+    //getters y setters
     public void setAnioGraduacion(String anioGraduacion) {
         this.anioGraduacion = anioGraduacion;
     }

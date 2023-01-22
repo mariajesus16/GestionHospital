@@ -3,7 +3,9 @@ package Empleados;
 import Consulta.Consulta;
 import Paciente.Paciente;
 
+//Clase Medico que hereda de la clase abstracta Empleado
 public class Medico extends Empleado {
+    //Atributo de la clase medico
     private Consulta consulta = null;
     private String espacialidad;
 
@@ -20,6 +22,7 @@ public class Medico extends Empleado {
         this.anioGraduacion = anioGraduacion;
     }
 
+    //Si la consulta no es null, el paciente pasa a una consulta.
     public String VisitaConsultas(Paciente paciente) {
         String respuesta = "";
         if(consulta!=null){
@@ -39,6 +42,7 @@ public class Medico extends Empleado {
         paciente.setTratamiento(tratamiento);
     }
 
+    //getters y setters
     public void setAnioGraduacion(String anioGraduacion) {
         this.anioGraduacion = anioGraduacion;
     }
