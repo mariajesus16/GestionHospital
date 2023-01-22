@@ -16,7 +16,7 @@ public class Main {
     static String commandNotFound = "Comando erróneo";
 
     //Función para encontrar la primera habitación que se encuentre sucia
-    public static Habitacion habSucia() {
+    private static Habitacion habSucia() {
         for (int i = 0; i < ListaDeHabitaciones.habitaciones.size(); i++) {
 
             Habitacion habitacion = ListaDeHabitaciones.habitaciones.get(i);

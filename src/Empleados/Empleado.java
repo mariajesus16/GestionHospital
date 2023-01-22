@@ -1,12 +1,24 @@
 package Empleados;
 
-public class Empleado {
+public abstract class Empleado {
     private String dni;
     private String nombre;
 
-    public Empleado(String dni, String nombre) {
+    private String apellidos;
+    public Empleado(String dni, String nombre, String apellidos) {
         this.dni = dni;
         this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    public Empleado(String dni, String apellidos){
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    public Empleado(String dni){
+        this.dni = dni;
     }
 
     public String getDni() {

@@ -21,6 +21,17 @@ public class Habitacion {
         this.numero = numero;
     }
 
+    public Habitacion(int numero, Boolean limpia){
+        this.numero = numero;
+        this.limpia = limpia;
+    }
+
+    public Habitacion(int numero, Boolean limpia, Paciente pacienteAsignado){
+        this.numero = numero;
+        this.limpia = limpia;
+        this.pacienteAsignado = pacienteAsignado;
+    }
+
     // setters y getters
 
     public void setNumero(int numero) {

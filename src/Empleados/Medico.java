@@ -7,9 +7,17 @@ public class Medico extends Empleado {
     private Consulta consulta = null;
     private String espacialidad;
 
+    private String anioGraduacion;
+
     public Medico(String dni, String nombre, String espacialidad) {
         super(dni, nombre);
         this.espacialidad = espacialidad;
+    }
+
+    public Medico(String dni, String nombre, String especialidad, String anioGraduacion){
+        super(dni,nombre);
+        this.espacialidad = especialidad;
+        this.anioGraduacion = anioGraduacion;
     }
 
     public String VisitaConsultas(Paciente paciente) {
@@ -29,6 +37,14 @@ public class Medico extends Empleado {
 
     public static void MandarTratamientos(Paciente paciente, String tratamiento) {
         paciente.setTratamiento(tratamiento);
+    }
+
+    public void setAnioGraduacion(String anioGraduacion) {
+        this.anioGraduacion = anioGraduacion;
+    }
+
+    public String getAnioGraduacion() {
+        return anioGraduacion;
     }
 
     public String getEspacialidad() {

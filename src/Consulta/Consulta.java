@@ -22,6 +22,15 @@ public class Consulta {
         this.tipo = tipo;
     }
 
+    public Consulta(int numero){
+        this.numero = numero;
+    }
+
+    public Consulta(int numero, String descripcion){
+        this.numero = numero;
+        this.descripcion = descripcion;
+    }
+
     // setters y getters
 
 

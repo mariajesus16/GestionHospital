@@ -7,6 +7,28 @@ import java.util.NavigableMap;
 
 //Cuando llega un paciente, para determinar su gravedad, se le revisa en urgencias
 public class RecepcionUrgencias {
+    private Boolean festivo;
+    private Boolean nocturna;
+    private Boolean UCI;
+    private Boolean recetas;
+
+    public RecepcionUrgencias(){};
+
+    public RecepcionUrgencias(Boolean festivo, Boolean nocturna, Boolean UCI, Boolean recetas){
+        this.festivo = festivo;
+        this.nocturna = nocturna;
+        this.UCI = UCI;
+        this.recetas = recetas;
+    }
+
+    public RecepcionUrgencias(Boolean festivo){
+        this.festivo = festivo;
+    }
+
+    public RecepcionUrgencias(Boolean nocturna, Boolean UCI){
+        this.nocturna = nocturna;
+        this.UCI = UCI;
+    }
 
     //Se revisa al paciente, y en base de su gravedad, se el asigna a una consulta, o ingresado a una habitación
     public String asignacion(Paciente pacienteAsignado){
@@ -32,7 +54,7 @@ public class RecepcionUrgencias {
     }
 
     //Función que busca la primera habitación que se encuentre libre
-    public Habitacion primeraHabLibre(Paciente paciente){
+    private Habitacion primeraHabLibre(Paciente paciente){
 
         for (int i = 0; i < ListaDeHabitaciones.habitaciones.size(); i++ ){
 
@@ -48,7 +70,7 @@ public class RecepcionUrgencias {
     }
 
     //Función que busca la primera consulta que se encuentre libre
-    public Consulta primeraConLibre(Paciente paciente){
+    private Consulta primeraConLibre(Paciente paciente){
 
         for (int i = 0; i < ListaDeConsultas.consultas.size(); i++ ){
 

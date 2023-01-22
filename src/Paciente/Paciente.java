@@ -27,6 +27,17 @@ public class Paciente {
         this.dolencia = dolencia;
     }
 
+    public Paciente(String dni, String apellidos){
+        this.dni = dni;
+        this.apellidos = apellidos;
+    }
+
+    public Paciente(String dni, String nombre, String apellidos){
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
     //getters y setters
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
