@@ -3,6 +3,8 @@ package Consulta;
 import Paciente.Paciente;
 
 public class Consulta {
+    //atributo que indica el número de consulta
+    private int numero;
 
     // descripcion de la consulta
     private String descripcion;
@@ -14,12 +16,22 @@ public class Consulta {
     private Paciente pacienteAsignado = null;
 
     // Constructor
-    public Consulta(String material, String tipo) {
+    public Consulta(int numero, String material, String tipo) {
+        this.numero = numero;
         this.descripcion = material;
         this.tipo = tipo;
     }
 
     // setters y getters
+
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;

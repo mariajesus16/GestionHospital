@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ListaDeConsultas {
 
-    static Consulta con1 = new Consulta("Por iniciativa del paciente, preferentemente organizada a través de cita previa.","Consulta a demanda");
-    static Consulta con2 = new Consulta("Realizada por iniciativa de un profesional sanitario.","Consulta programada");
-    static Consulta con3 = new Consulta("Por motivos no demorables.","Consulta urgente");
+    static Consulta con1 = new Consulta(1,"Paracetamol, tensiómetro, glucómetro, fonendoscopio .","Consulta a demanda");
+    static Consulta con2 = new Consulta(2, "Camilla, fonendoscopio, linterna.","Consulta programada");
+    static Consulta con3 = new Consulta(3,"Ecógrafo, camilla, inyecciones.","Consulta urgente");
 
     // Utilizar al iniciar el programa para que vuelque las tres consultas en la lista
     public static void rellenarListaConsultas(){

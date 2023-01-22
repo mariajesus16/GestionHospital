@@ -4,6 +4,7 @@ package Paciente;
 import Habitacion.Habitacion;
 import Consulta.Consulta;
 
+//Clase paciente, posee atributos de paciente, y atributos de asignación en función de sus necesidades
 public class Paciente {
     private Habitacion hab = null;
     private Consulta con = null;
@@ -18,13 +19,15 @@ public class Paciente {
     private Boolean ingresado = false;
     private Boolean visitas = false;
 
-    public Paciente(String dni, String nombre, String apellidos, String numeroDeRegistro) {
+    public Paciente(String dni, String nombre, String apellidos, String numeroDeRegistro, String dolencia) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.numeroDeRegistro = numeroDeRegistro;
+        this.dolencia = dolencia;
     }
 
+    //getters y setters
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }

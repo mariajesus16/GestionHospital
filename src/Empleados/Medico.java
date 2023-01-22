@@ -13,7 +13,14 @@ public class Medico extends Empleado {
     }
 
     public String VisitaConsultas(Paciente paciente) {
-        return "El Paciente " + paciente.getNombre() + " con DNI: " + paciente.getDni() + " ha pasado a consulta.";
+        if(consulta!=null){
+            consulta = null;
+            paciente.setConsulta(null);
+            consulta.setPacienteAsignado(null);
+            return "El Paciente " + paciente.getNombre() + " con DNI: " + paciente.getDni() + " ha pasado a consulta.";}
+        else {
+            return "El médico no tiene consulta asignada.";
+        }
     }
 
     public static void MandarTratamientos(Paciente paciente, String tratamiento) {
