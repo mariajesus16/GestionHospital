@@ -1,5 +1,6 @@
 import Consulta.Consulta;
 import Consulta.ListaDeConsultas;
+import DB.Conexion;
 import Empleados.Celador;
 import Empleados.Enfermero;
 import Empleados.Limpiador;
@@ -9,6 +10,7 @@ import Habitacion.ListaDeHabitaciones;
 import Paciente.Paciente;
 import RecepcionUrgencias.RecepcionUrgencias;
 
+import java.sql.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,7 +31,7 @@ public class Main {
     }
 
     //Función con las acciones del empleado médico
-    public static Boolean meds(int respuesta, Medico med) {
+    public static Boolean meds(int respuesta, Medico med) throws SQLException, ClassNotFoundException {
         Boolean seguir = true;
         //Si elige pasar consulta, busca la primera consulta que necesite un médico, y pasa consulta
         if (respuesta == 1) {
@@ -62,7 +64,23 @@ public class Main {
             if(hab == null){
                 System.out.println("No hay pacientes ingresados.");
             }
-        } else if (respuesta == 0) {
+            // Si elige listar consultas
+        } else if (respuesta == 3) {
+
+            Conexion micone = new Conexion();
+
+            micone.selectAllConsultas();
+
+            } else if(respuesta == 4){
+            Conexion micone = new Conexion();
+
+            micone.borrarConsulta();
+
+        }else if (respuesta == 5){
+            Conexion micone = new Conexion();
+            micone.insertarConsulta();
+
+        }else if (respuesta == 0) {
             seguir = false;
         } else System.out.println(commandNotFound);
 
@@ -193,7 +211,7 @@ public class Main {
         System.out.println(urg.asignacion(pac));
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         ListaDeHabitaciones.rellenarListaHabitaciones();
         ListaDeConsultas.rellenarListaConsultas();
         //Datos de prueba
@@ -239,7 +257,7 @@ public class Main {
                         if (med != null) {
                             System.out.println("Bienvenid@ " + med.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Listar Consultas\n-4 Eliminar consulta de la BD\n-5 Insertar nueva consulta\n-0 Salir");
                                 seguir = meds(sc.nextInt(), med);
                             }
                         } else {
