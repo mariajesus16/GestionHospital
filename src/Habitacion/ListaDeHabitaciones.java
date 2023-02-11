@@ -2,22 +2,23 @@ package Habitacion;
 
 import Consulta.Consulta;
 import Habitacion.Habitacion;
+import Paciente.Paciente;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaDeHabitaciones {
 
-    static Habitacion hab1 = new Habitacion(1);
-    static Habitacion hab2 = new Habitacion(2);
-    static Habitacion hab3 = new Habitacion(3);
-    static Habitacion hab4 = new Habitacion(4);
-    static Habitacion hab5 = new Habitacion(5);
-    static Habitacion hab6 = new Habitacion(6);
-    static Habitacion hab7 = new Habitacion(7);
-    static Habitacion hab8 = new Habitacion(8);
-    static Habitacion hab9 = new Habitacion(9);
-    static Habitacion hab10 = new Habitacion(10);
+    static Habitacion hab1 = new Habitacion(1,true,false,new Paciente("12345678o","gonzalez"));
+    static Habitacion hab2 = new Habitacion(2,true,false,new Paciente("12345678j","gonzalez"));
+    static Habitacion hab3 = new Habitacion(3,true,false,new Paciente("12345678p","gonzalez"));
+    static Habitacion hab4 = new Habitacion(4,true,false,new Paciente("12345678i","gonzalez"));
+    static Habitacion hab5 = new Habitacion(5,true,false,new Paciente("12345678y","gonzalez"));
+    static Habitacion hab6 = new Habitacion(6,true,false,new Paciente("123456784","gonzalez"));
+    static Habitacion hab7 = new Habitacion(7,true,false,new Paciente("12345678w","gonzalez"));
+    static Habitacion hab8 = new Habitacion(8,true,false,new Paciente("12345678a","gonzalez"));
+    static Habitacion hab9 = new Habitacion(9,true,false,new Paciente("12345677u","gonzalez"));
+    static Habitacion hab10 = new Habitacion(10,true,false,new Paciente("12345698o","gonzalez"));
 
 
     // Utilizar al iniciar el programa para que vuelque las tres consultas en la lista

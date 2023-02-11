@@ -32,6 +32,13 @@ public class Habitacion {
         this.pacienteAsignado = pacienteAsignado;
     }
 
+    public Habitacion(int numero, Boolean ocupada ,Boolean limpia, Paciente pacienteAsignado){
+        this.numero = numero;
+        this.ocupada = ocupada;
+        this.limpia = limpia;
+        this.pacienteAsignado = pacienteAsignado;
+    }
+
     // setters y getters
 
     public void setNumero(int numero) {
