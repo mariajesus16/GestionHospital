@@ -7,6 +7,9 @@ public abstract class Empleado {
     private String nombre;
 
     private String apellidos;
+
+    private String tipo;
+
     public Empleado(String dni, String nombre, String apellidos) {
         this.dni = dni;
         this.nombre = nombre;

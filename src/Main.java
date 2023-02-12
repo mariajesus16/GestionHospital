@@ -15,6 +15,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+
     static String commandNotFound = "Comando erróneo";
 
     //Función para encontrar la primera habitación que se encuentre sucia
@@ -89,7 +91,19 @@ public class Main {
             Conexion micone = new Conexion();
             micone.selectAllHabitaciones();
 
-        } else if (respuesta == 0) {
+        }else if (respuesta == 8){
+            Conexion micone = new Conexion();
+            micone.insertPaciente();
+
+        } else if(respuesta == 9){
+            Conexion micone = new Conexion();
+            micone.mandarTratamiento();
+
+        } else if (respuesta == 10){
+            Conexion micone = new Conexion();
+            micone.darAltaPaciente();
+
+        }else if (respuesta == 0) {
             seguir = false;
         } else System.out.println(commandNotFound);
 
@@ -132,6 +146,14 @@ public class Main {
             Conexion micone = new Conexion();
 
             micone.selectAllHabitaciones();
+        } else if (respuesta == 5) {
+            Conexion micone = new Conexion();
+            micone.insertPaciente();
+
+        } else if (respuesta == 6){
+            Conexion micone = new Conexion();
+            micone.darComida();
+
         }else if (respuesta == 0) {
             seguir = false;
         } else System.out.println(commandNotFound);
@@ -188,13 +210,20 @@ public class Main {
         } else {
             switch (respuesta) {
                 case 1:
+                  /*
                     cel.TransportarPacientes(paciente, paciente.getHabitacion());
                     System.out.println("Transporta al paciente " + paciente.getNombre() + " a la habitación " + paciente.getHabitacion());
-                    break;
+                    break; */
+
+                    Conexion lacone = new Conexion();
+                    lacone.transportarPaciente();
                 case 2:
+                    Conexion micone = new Conexion();
+                    micone.darComida();
+                    /*
                     cel.LLevarComida(paciente, "comida");
                     System.out.println("Lleva comida a la habitación " + paciente.getHabitacion());
-                    break;
+                    break;*/
                 case 3:
                     System.out.println(cel.HacerCuras(paciente));
                     break;
@@ -236,22 +265,31 @@ public class Main {
         ListaDeHabitaciones.rellenarListaHabitaciones();
         ListaDeConsultas.rellenarListaConsultas();
 
+        Conexion conexion = new Conexion();
+
+//        conexion.createTableConsulta();
+//      conexion.createTableEmpleado();
+//        conexion.createTableHabitacion();
+ //       conexion.createTablePaciente();
+
+
+
         // AL INICIAR EL PROGRAMA VOLCAMOS TODAS LAS CONSULTAS Y HABITACIONES DE LAS LISTAS QUE TENIAMOS ANTES
         // HACIA SUS RESPECTIVAS TABLAS DE LA BASE DE DATOS, UNA VEZ HECHO ESTO PODEMOS COMENTAR ESTA PARTE
 
-        for (int i = 0; i < ListaDeConsultas.consultas.size(); i++) {
+ /*       for (int i = 0; i < ListaDeConsultas.consultas.size(); i++) {
             Consulta element = ListaDeConsultas.consultas.get(i);
 
-            Conexion conexion = new Conexion();
+          //  Conexion conexion1 = new Conexion();
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital_bd", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/hospital_bd", "hospital", "123456789");
                 if (!conn.isClosed()) System.out.println("Conexion realizada...");
 
                 try {
                     Statement st = conn.createStatement();
-                    st.executeUpdate("INSERT INTO lista_consultas VALUES (" + element.getNumero() + " ,'" + element.getDescripcion() + "', '" + element.getTipo() + "' )");
+                    st.executeUpdate("INSERT INTO consulta VALUES (" + element.getNumero() + " ,'" + element.getDescripcion() + "', '" + element.getTipo() + "' )");
                     //  conn.close();
                 } catch (Exception e) {
                     System.err.println("Got an exception");
@@ -268,16 +306,16 @@ public class Main {
         for (int i = 0; i < ListaDeHabitaciones.habitaciones.size(); i++) {
             Habitacion element = ListaDeHabitaciones.habitaciones.get(i);
 
-            Conexion conexion = new Conexion();
+        //    Conexion conexion = new Conexion();
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital_bd", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/hospital_bd", "hospital", "123456789");
                 if (!conn.isClosed()) System.out.println("Conexion realizada...");
 
                 try {
                     Statement st = conn.createStatement();
-                    st.executeUpdate("INSERT INTO lista_habitaciones VALUES (" + element.getNumero() + " ,'" + element.getOcupacion().toString() + "', '" + element.getLimpieza().toString() + "','" + element.getPacienteAsignado().getDni() + "' );");
+                    st.executeUpdate("INSERT INTO habitacion VALUES (" + element.getNumero() + " ,'" + element.getOcupacion().toString() + "', '" + element.getLimpieza().toString() + "','" + element.getPacienteAsignado().getDni() + "' );");
                     //  conn.close();
                 } catch (Exception e) {
                     System.err.println("Got an exception");
@@ -289,7 +327,7 @@ public class Main {
 
 
         }
-
+*/
         //Datos de prueba
         Medico[] medicos = new Medico[]{new Medico("6438999I", "Antonio", "Otorrino"),
                 new Medico("348583792Y", "Manuela", "Familia")};
@@ -335,7 +373,7 @@ public class Main {
                             while (seguir) {
                                 System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Listar Consultas" +
                                         "\n-4 Eliminar consulta de la BD\n-5 Insertar nueva consulta\n-6 Insertar habitacion" +
-                                        "\n-7 Listar habitaciones \n-0 Salir");
+                                        "\n-7 Listar habitaciones\n-8 Insertar Paciente\n-9 Mandar Tratamiento\n-10 Dar de alta a un paciente :  \n-0 Salir");
                                 seguir = meds(sc.nextInt(), med);
                             }
                         } else {
@@ -352,7 +390,7 @@ public class Main {
                         if (enf != null) {
                             System.out.println("Bienvenid@ " + enf.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Ver Consultas\n-4 Ver Habitaciones\n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Ver Consultas\n-4 Ver Habitaciones\n-5 Registrar Paciente\n-6 Dar Comida\n-0 Salir");
                                 seguir = enfs(sc.nextInt(), enf);
                             }
                         } else {

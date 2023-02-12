@@ -190,11 +190,10 @@ public class Conexion {
             statement = conn.createStatement();
             String table = "CREATE TABLE habitacion " +
                     "(numero INTEGER not NULL, " +
-                    " ocupada boolean, " +
-                    " limpia boolean, " +
+                    " ocupada VARCHAR(5), " +
+                    " limpia VARCHAR(5), " +
                     " paciente VARCHAR(9), " +
-                    " PRIMARY KEY ( numero )," +
-                    "FOREIGN KEY (paciente) REFERENCES paciente(dni))";
+                    " PRIMARY KEY ( numero ))";
             statement.executeUpdate(table);
             statement.close();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -228,12 +227,12 @@ public class Conexion {
             statement = conn.createStatement();
             String table = "CREATE TABLE paciente " +
                     "(dni VARCHAR(9) not NULL," +
-                    "habitacion integer," +
-                    "consulta integer, " +
+                    "habitacion INTEGER," +
+                    "consulta INTEGER, " +
                     "nombre VARCHAR(50), " +
                     "apellidos VARCHAR(200)," +
                     "numeroRegistro VARCHAR(10)," +
-                    "gravedad integer," +
+                    "gravedad INTEGER," +
                     "dolencia VARCHAR(200)," +
                     "tratamiento VARCHAR(200)," +
                     "comida VARCHAR(200)," +
@@ -255,10 +254,10 @@ public class Conexion {
             Connection conn = DriverManager.getConnection(URL_CONEXION, USUARIO, CLAVE);
             if (!conn.isClosed()) System.out.println("Conexion realizada...");
             statement = conn.createStatement();
-            String table = "CREATE TABLE paciente " +
+            String table = "CREATE TABLE empleado " +
                     "(dni VARCHAR(9) not NULL," +
                     "nombre VARCHAR(50), " +
-                    "apellidos VARCHAR(200)," +
+                    "apellidos VARCHAR(200)," + "tipo VARCHAR(99)," +
                     "PRIMARY KEY ( dni ))";
             statement.executeUpdate(table);
             statement.close();
@@ -415,6 +414,7 @@ public class Conexion {
 
                 st.executeUpdate();
                 st.close();
+                System.out.println("El paciente se ha trasladado a la habitación" + numero);
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -435,11 +435,12 @@ public class Conexion {
             if (!conn.isClosed()) System.out.println("Conexion realizada...");
 
             try {
-                PreparedStatement st = conn.prepareStatement("delete from paciente where dni = ?"); //Aqui nose si tengo q meter la ? en ''
+                PreparedStatement st = conn.prepareStatement("delete from paciente where dni = ?");
                 st.setString(1, dni);
 
                 st.executeUpdate();
                 st.close();
+                System.out.println("El paciente con el dni: " + dni + " ha sido dado de alta.");
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -449,6 +450,7 @@ public class Conexion {
         }
     }
 
+    /*
     public void insertEmpleado() {
         System.out.println("Escribe el dni del empleado a insertar");
         Scanner ns = new Scanner(System.in);
@@ -508,7 +510,7 @@ public class Conexion {
             throw new RuntimeException(ex);
         }
     }
-
+*/
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
 
 
