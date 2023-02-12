@@ -22,11 +22,11 @@ public class Consulta {
         this.tipo = tipo;
     }
 
-    public Consulta(int numero){
+    public Consulta(int numero) {
         this.numero = numero;
     }
 
-    public Consulta(int numero, String descripcion){
+    public Consulta(int numero, String descripcion) {
         this.numero = numero;
         this.descripcion = descripcion;
     }
@@ -68,14 +68,13 @@ public class Consulta {
 
 
     // manda un mensaje de que el paciente ya ha sido revisado y cambia este a Null
-    public String revisarPaciente(){
+    public String revisarPaciente() {
 
         this.pacienteAsignado = null;
 
         return "el paciente ha sido revisado";
 
     }
-
 
 
 }
