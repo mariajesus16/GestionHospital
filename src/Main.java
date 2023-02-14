@@ -1,16 +1,14 @@
 import Consulta.Consulta;
 import Consulta.ListaDeConsultas;
 import DB.Conexion;
-import Empleados.Celador;
-import Empleados.Enfermero;
-import Empleados.Limpiador;
-import Empleados.Medico;
+import Empleados.*;
 import Habitacion.Habitacion;
 import Habitacion.ListaDeHabitaciones;
 import Paciente.Paciente;
 import RecepcionUrgencias.RecepcionUrgencias;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -103,6 +101,10 @@ public class Main {
             Conexion micone = new Conexion();
             micone.darAltaPaciente();
 
+        }else if(respuesta == 11){
+            Conexion micone = new Conexion();
+            micone.selectAllPacientes();
+
         }else if (respuesta == 0) {
             seguir = false;
         } else System.out.println(commandNotFound);
@@ -153,6 +155,10 @@ public class Main {
         } else if (respuesta == 6){
             Conexion micone = new Conexion();
             micone.darComida();
+
+        }else if(respuesta == 7){
+            Conexion micone = new Conexion();
+            micone.selectAllPacientes();
 
         }else if (respuesta == 0) {
             seguir = false;
@@ -262,9 +268,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        
+     //   Conexion conexion = new Conexion();
+
+      //  var listaEmpleados = conexion.selectAllEmpleadosIntroducirEnLista();
+        
+
         ListaDeHabitaciones.rellenarListaHabitaciones();
         ListaDeConsultas.rellenarListaConsultas();
-
+/*
         Conexion conexion = new Conexion();
 
 //        conexion.createTableConsulta();
@@ -328,6 +340,7 @@ public class Main {
 
         }
 */
+
         //Datos de prueba
         Medico[] medicos = new Medico[]{new Medico("6438999I", "Antonio", "Otorrino"),
                 new Medico("348583792Y", "Manuela", "Familia")};
@@ -350,6 +363,11 @@ public class Main {
         Scanner scS = new Scanner(System.in);
         Boolean salir = false;
 
+
+
+
+
+
         //Menú de interacción con el usuario
         while (!salir) {
             System.out.println("¿Qué desea hacer? \n-1 Seleccionar acción  \n-2 Salir");
@@ -371,9 +389,9 @@ public class Main {
                         if (med != null) {
                             System.out.println("Bienvenid@ " + med.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Listar Consultas" +
-                                        "\n-4 Eliminar consulta de la BD\n-5 Insertar nueva consulta\n-6 Insertar habitacion" +
-                                        "\n-7 Listar habitaciones\n-8 Insertar Paciente\n-9 Mandar Tratamiento\n-10 Dar de alta a un paciente :  \n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Listar Consultas (BBDD)" +
+                                        "\n-4 Eliminar consulta de la BD (BBDD)\n-5 Insertar nueva consulta (BBDD)\n-6 Insertar habitacion nueva (BBDD)" +
+                                        "\n-7 Listar habitaciones (BBDD)\n-8 Insertar Paciente Nuevo (BBDD)\n-9 Mandar Tratamiento (BBDD)\n-10 Dar de alta a un paciente (BBDD)\n-11 Listar pacientes (BBDD)  \n-0 Salir");
                                 seguir = meds(sc.nextInt(), med);
                             }
                         } else {
@@ -390,7 +408,7 @@ public class Main {
                         if (enf != null) {
                             System.out.println("Bienvenid@ " + enf.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Ver Consultas\n-4 Ver Habitaciones\n-5 Registrar Paciente\n-6 Dar Comida\n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Atender consulta\n-2 Paciente ingresado\n-3 Ver Consultas (BBDD)\n-4 Ver Habitaciones (BBDD)\n-5 Registrar Paciente (BBDD)\n-6 Dar Comida (BBDD)\n-7 Listar Pacientes (BBDD) \n-0 Salir");
                                 seguir = enfs(sc.nextInt(), enf);
                             }
                         } else {
@@ -407,7 +425,7 @@ public class Main {
                         if (limp != null) {
                             System.out.println("Bienvenid@ " + limp.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Encontrar habitación sucia\n-2 Limpiar habitación asignada\n-3 Limpiar habitacion por numero(BBDD)\n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Encontrar habitación sucia\n-2 Limpiar habitación asignada\n-3 Limpiar habitacion por numero (BBDD)\n-0 Salir");
                                 seguir = limps(sc.nextInt(), limp);
                             }
                         } else {
@@ -424,7 +442,7 @@ public class Main {
                         if (cel != null) {
                             System.out.println("Bienvenid@ " + cel.getNombre());
                             while (seguir) {
-                                System.out.println("¿Qué deseas hacer?\n-1 Transportar paciente\n-2 LLevar comida\n-3 Realizar curas\n-0 Salir");
+                                System.out.println("¿Qué deseas hacer?\n-1 Transportar paciente (BBDD)\n-2 LLevar comida (BBDD)\n-3 Realizar curas\n-0 Salir");
                                 seguir = cels(sc.nextInt(), cel);
                             }
                         } else {
@@ -442,6 +460,11 @@ public class Main {
                 System.out.println("Adiós!");
                 salir = true;
             } else System.out.println("Comando incorrecto.");
+            
+            
         }
+        
+
+        
     }
 }

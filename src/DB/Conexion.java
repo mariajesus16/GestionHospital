@@ -1,10 +1,13 @@
 package DB;
 
+import Empleados.Empleado;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Conexion {
@@ -41,7 +44,10 @@ public class Conexion {
             try {
                 Statement st = conn.createStatement();
                 st.executeUpdate("INSERT INTO habitacion VALUES (" + nume + " ,'" + ocu + "', '" + lim + "' ,'" + pac + "'   )");
-                //  conn.close();
+
+                System.out.println("Nueva habitación implementada :)");
+
+                 conn.close();
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -71,7 +77,10 @@ public class Conexion {
             try {
                 Statement st = conn.createStatement();
                 st.executeUpdate("INSERT INTO consulta VALUES (" + nume + " ,'" + mate + "', '" + tipo + "' )");
-                //  conn.close();
+                  conn.close();
+
+                System.out.println("Nueva consulta implementada :)");
+
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -95,6 +104,7 @@ public class Conexion {
             try (Statement stmt = conn.createStatement();) {
                 String sql = "DELETE FROM consulta WHERE numero =" + nume;
                 stmt.executeUpdate(sql);
+                System.out.println("Consulta eliminada");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -266,6 +276,48 @@ public class Conexion {
         }
     }
 
+    /*
+    public ArrayList<Empleado> selectAllEmpleadosIntroducirEnLista() {
+
+        try {
+            Class.forName(DRIVER);
+            Connection conn = DriverManager.getConnection(URL_CONEXION, USUARIO, CLAVE);
+            if (!conn.isClosed()) System.out.println("Conexion realizada...");
+
+            String selectTableSQL = "SELECT dni,nombre,apellidos,tipo FROM empleado ";
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(selectTableSQL);
+
+            ArrayList<Empleado> lista = new ArrayList<Empleado>();
+
+
+            while (rs.next()) {
+
+
+
+                String dni = rs.getString("dni");
+                String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");
+                String tipo = rs.getString("tipo");
+
+                lista.add(new Empleado(dni,nombre,apellidos,tipo));
+
+
+                System.out.println("*" + tipo + "*");
+                System.out.println("DNI : " + dni);
+                System.out.println("Apellidos : " + apellidos);
+                System.out.println("Nombre : " + nombre);
+                System.out.println("------------");
+            }
+            return lista;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+
+    }
+*/
+
+
     public void selectAllPacientes() {
 
         try {
@@ -310,20 +362,36 @@ public class Conexion {
         Scanner pa = new Scanner(System.in);
         String numeroAsig = pa.nextLine();
 
+        System.out.println("Introduce el número de una habitacion vacia ");
+        Scanner pn = new Scanner(System.in);
+        int numh = pn.nextInt();
+
+
         try {
             Class.forName(DRIVER);
             Connection conn = DriverManager.getConnection(URL_CONEXION, USUARIO, CLAVE);
             if (!conn.isClosed()) System.out.println("Conexion realizada...");
 
             try {
-                PreparedStatement st = conn.prepareStatement("INSERT INTO paciente(dni,nombre,apellidos,numeroRegistro) VALUES (?,?,?,?)");
+                PreparedStatement st = conn.prepareStatement("INSERT INTO paciente(dni,nombre,apellidos,numeroRegistro, habitacion) VALUES (?,?,?,?,?)");
                 st.setString(1, dni);
                 st.setString(2, nombre);
                 st.setString(3, apellidos);
                 st.setString(4, numeroAsig);
+                st.setInt(5,numh);
+
+              PreparedStatement st2 = conn.prepareStatement(("UPDATE habitacion SET ocupada='true', paciente=? where numero = ?" ));
+
+              st2.setString(1,dni);
+              st2.setInt(2,numh);
 
                 st.executeUpdate();
+                st2.executeUpdate();
                 st.close();
+                st2.close();
+
+                System.out.println("El paciente con dni: "+ dni + "Ha sido asignado a la habitación "+ numh);
+
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -354,6 +422,9 @@ public class Conexion {
 
                 st.executeUpdate();
                 st.close();
+
+                System.out.println("El paciente con dni" + dni + "recibirá " + comida);
+
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -384,6 +455,9 @@ public class Conexion {
 
                 st.executeUpdate();
                 st.close();
+
+                System.out.println("El paciente " + dni + " recibirá " + tratamiento);
+
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -412,9 +486,20 @@ public class Conexion {
                 st.setInt(1, numero);
                 st.setString(2, dni);
 
+                PreparedStatement st2 = conn.prepareStatement("update habitacion set ocupada = ?, paciente = ? where numero = ?");
+                st2.setString(1,"true");
+                st2.setString(2,dni);
+                st2.setInt(3,numero);
+
                 st.executeUpdate();
+                st2.executeUpdate();
+
                 st.close();
-                System.out.println("El paciente se ha trasladado a la habitación" + numero);
+                st2.close();
+
+                System.out.println("El paciente se ha trasladado a la habitación : " + numero);
+
+
             } catch (Exception e) {
                 System.err.println("Got an exception");
                 System.err.println(e.getMessage());
@@ -422,6 +507,11 @@ public class Conexion {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new RuntimeException(ex);
         }
+
+
+
+
+
     }
 
     public void darAltaPaciente() {
